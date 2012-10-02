@@ -25,14 +25,14 @@ public class DownstreamBuild {
     public String jobName;
     public int buildNumber;
     public Run buildRun;
+    public AbstractProject project;
     public String[] failedTests;
     ArrayList<FailureJSON> failures;
 
-    public DownstreamBuild(Build build) {
+    public DownstreamBuild(String project, int buildNumber) {
 
-        this.jobName = build.getProject().getName();
-        this.buildNumber = build.getNumber();
-        this.buildRun = build;
+        this.jobName = project;
+        this.buildNumber = buildNumber;
     }
 
     public String getJobName() {
@@ -44,20 +44,40 @@ public class DownstreamBuild {
     }
 
     public boolean currentlyRunning() {
+        if (buildRun == null) {
+            this.project = (AbstractProject) Jenkins.getInstance().getItem(this.jobName);
+            this.buildRun = this.project.getBuildByNumber(this.buildNumber);
+        }
+
         if (this.buildRun.isBuilding())
             return true;
         return false;
     }
 
     public String getRunDuration() {
+        if (buildRun == null) {
+            this.project = (AbstractProject) Jenkins.getInstance().getItem(this.jobName);
+            this.buildRun = this.project.getBuildByNumber(this.buildNumber);
+        }
+
         return this.buildRun.getDurationString();
     }
 
     public String getBuildStatus() {
+        if (buildRun == null) {
+            this.project = (AbstractProject) Jenkins.getInstance().getItem(this.jobName);
+            this.buildRun = this.project.getBuildByNumber(this.buildNumber);
+        }
+
         return this.buildRun.getResult().toString();
     }
 
     public ArrayList<FailureJSON> getDetailedErrors() {
+        if (buildRun == null) {
+            this.project = (AbstractProject) Jenkins.getInstance().getItem(this.jobName);
+            this.buildRun = this.project.getBuildByNumber(this.buildNumber);
+        }
+
         if (!this.currentlyRunning()) {
             ParseJSON parseJSON = new ParseJSON(buildRun);
             failures = parseJSON.parse();
