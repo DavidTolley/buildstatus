@@ -23,7 +23,7 @@ import java.util.List;
 public class BuildStatusPlugin extends Builder {
 
     @DataBoundConstructor
-    public BuildStatusPlugin(String dsb) {
+    public BuildStatusPlugin() {
 
     }
 
