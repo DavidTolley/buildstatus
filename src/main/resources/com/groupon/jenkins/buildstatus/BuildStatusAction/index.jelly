@@ -1,0 +1,110 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form" xmlns:i="jelly:fmt">
+<link rel="stylesheet" type="text/css" href="${rootURL}/plugin/BuildStatus/main.css"/>
+
+    <div class="main">
+
+        <div class="parent">
+
+            <div class="parentHeader">
+
+                ${it.getParentBuildName()}
+                ${it.getParentBuildNumber()}
+
+            </div>
+            <div class="parentData">
+
+                <j:if test="${it.isParentRunning()}">
+                        Status: Running
+                Current build duration: ${it.getParentDuration()}
+                </j:if>
+                <j:if test="${!it.isParentRunning()}">
+                    Finished - Took: ${it.getParentDuration()}
+                    Status: ${it.getBuildStatus()}
+                </j:if>
+
+            </div>
+
+            <div class="downstreamContainer">
+
+                Downstream Builds:
+
+                <j:forEach items="${it.getDownstreamBuilds()}" var="dsb" indexVar="i">
+
+                    <div class="downstreamBuildRow">
+
+                        ${dsb.getJobName()}
+                        ${dsb.getBuildNumber()}
+
+                        <j:if test="${dsb.currentlyRunning()}">
+                            Status: Running
+                            Current build duration: ${dsb.getRunDuration()}
+                        </j:if>
+                        <j:if test="${!dsb.currentlyRunning()}">
+                            Status: ${dsb.getBuildStatus()}
+                            Took: ${dsb.getRunDuration()}
+
+                            <div class="errorContainer">
+
+                                <div class="errorCount">
+
+                                    <j:if test="${dsb.getErrorCount() == 0}">
+                                        Failures: No failures
+                                    </j:if>
+                                    <j:if test="${!(dsb.getErrorCount() == 0)}">
+
+                                        <j:if test="${dsb.getBuildStatus() == 'FAILURE'}">
+
+                                            Failures: ${dsb.getErrorCount()}
+
+                                        </j:if>
+                                        <j:if test="${!(dsb.getBuildStatus() == 'FAILURE')}">
+
+                                            Failures: No Failures
+
+                                        </j:if>
+
+                                    </j:if>
+
+                                </div>
+
+                                <div class="toggleDetailedError">
+
+                                    <j:if test="${!(dsb.getErrorCount() == 0)}">
+
+                                        <j:if test="${dsb.getBuildStatus() == 'FAILURE'}">
+
+                                            <j:forEach items="${dsb.getDetailedErrors()}" var="error" indexVar="i">
+
+                                                <div class="detailedError">
+
+                                                    <span class="failureLabel">Failure Message: </span> ${error.getFailureMessage()}
+                                                    <span class="failureLabel">Failure Name: </span> ${error.getTestName()}
+                                                    <span class="failureLabel">Failure File: </span> ${error.getFile()}
+                                                    <span class="failureLabel">Failure Line: </span> ${error.getFailureLine()}
+                                                    <span class="failureLabel">Failure Stacktrace: </span> ${error.getFailureBacktrace()}
+
+                                                </div>
+
+                                            </j:forEach>
+
+                                        </j:if>
+
+                                    </j:if>
+
+                                </div>
+
+                            </div>
+
+                        </j:if>
+
+                    </div>
+
+                </j:forEach>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</j:jelly>

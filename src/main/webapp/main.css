@@ -1,0 +1,28 @@
+.main{
+
+}
+
+.parent{
+    overflow: hidden;
+    display: block;
+}
+
+.parentHeader{
+    overflow: hidden;
+    display: block;
+    clear: both;
+}
+
+.toggleDetailedError{
+    display: block
+}
+
+.detailedError{
+    font-size: 12px;
+    border-bottom: 1px solid;
+}
+
+.failureLabel{
+    display: block;
+    color: #CCCCCC;
+}
