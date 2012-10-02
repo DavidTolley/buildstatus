@@ -14,7 +14,6 @@ import java.util.*;
  * To change this template use File | Settings | File Templates.
  */
 public class BuildStatusAction implements Action {
-    private String dsb;
     private AbstractBuild parentBuild;
     public List<DownstreamBuild> dsbs;
 
