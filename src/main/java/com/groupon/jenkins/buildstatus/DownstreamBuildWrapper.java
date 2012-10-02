@@ -49,7 +49,8 @@ public class DownstreamBuildWrapper extends BuildWrapper {
             }
 
             listener.getLogger().println("Setting " + build.getDisplayName() + "as a downstream build of: " + upBuild.getProject().toString() + " " + upBuild.getDisplayName());
-            upBuild.addAction(new DownstreamAction((Build) build));
+            upBuild.addAction(new DownstreamAction(build.getProject(), build.getNumber()));
+            upBuild.save();
         }
     }
 
