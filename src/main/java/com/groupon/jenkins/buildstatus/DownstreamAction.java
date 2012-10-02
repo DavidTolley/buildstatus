@@ -17,9 +17,9 @@ public class DownstreamAction implements Action {
 
     public DownstreamBuild dsb;
 
-    public DownstreamAction(Build build) {
+    public DownstreamAction(AbstractProject project, int buildNumber) {
 
-        this.dsb = new DownstreamBuild(build);
+        this.dsb = new DownstreamBuild(project.getName(), buildNumber);
     }
 
     public DownstreamBuild getDownstreamBuild() {
