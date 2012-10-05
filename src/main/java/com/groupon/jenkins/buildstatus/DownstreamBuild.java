@@ -44,10 +44,8 @@ public class DownstreamBuild {
     }
 
     public boolean currentlyRunning() {
-        if (buildRun == null) {
-            this.project = (AbstractProject) Jenkins.getInstance().getItem(this.jobName);
-            this.buildRun = this.project.getBuildByNumber(this.buildNumber);
-        }
+        this.project = (AbstractProject) Jenkins.getInstance().getItem(this.jobName);
+        this.buildRun = this.project.getBuildByNumber(this.buildNumber);
 
         if (this.buildRun.isBuilding())
             return true;
@@ -55,7 +53,7 @@ public class DownstreamBuild {
     }
 
     public String getRunDuration() {
-        if (buildRun == null) {
+        if (this.buildRun == null) {
             this.project = (AbstractProject) Jenkins.getInstance().getItem(this.jobName);
             this.buildRun = this.project.getBuildByNumber(this.buildNumber);
         }
@@ -64,7 +62,7 @@ public class DownstreamBuild {
     }
 
     public String getBuildStatus() {
-        if (buildRun == null) {
+        if (this.buildRun == null) {
             this.project = (AbstractProject) Jenkins.getInstance().getItem(this.jobName);
             this.buildRun = this.project.getBuildByNumber(this.buildNumber);
         }
@@ -72,8 +70,27 @@ public class DownstreamBuild {
         return this.buildRun.getResult().toString();
     }
 
+    public String getBuildConsoleURL() {
+        if (this.buildRun == null) {
+            this.project = (AbstractProject) Jenkins.getInstance().getItem(this.jobName);
+            this.buildRun = this.project.getBuildByNumber(this.buildNumber);
+        }
+
+        return this.getBuildURL() + "console";
+    }
+
+    public String getBuildURL() {
+        if (this.buildRun == null) {
+            this.project = (AbstractProject) Jenkins.getInstance().getItem(this.jobName);
+            this.buildRun = this.project.getBuildByNumber(this.buildNumber);
+        }
+
+        Jenkins jenkins = Jenkins.getInstance();
+        return jenkins.getRootUrl() + this.buildRun.getUrl();
+    }
+
     public ArrayList<FailureJSON> getDetailedErrors() {
-        if (buildRun == null) {
+        if (this.buildRun == null) {
             this.project = (AbstractProject) Jenkins.getInstance().getItem(this.jobName);
             this.buildRun = this.project.getBuildByNumber(this.buildNumber);
         }
@@ -91,7 +108,11 @@ public class DownstreamBuild {
         if (!this.currentlyRunning()) {
 
             try {
-                return getDetailedErrors().size();
+                if (this.getBuildStatus().equals(Result.SUCCESS)) {
+                    return 0;
+                } else {
+                    return getDetailedErrors().size();
+                }
             } catch (Exception e) {
 
             }

@@ -1,107 +1,113 @@
 <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form" xmlns:i="jelly:fmt">
+<meta http-equiv="refresh" content="45"/>
 <link rel="stylesheet" type="text/css" href="${rootURL}/plugin/BuildStatus/main.css"/>
+<script type="text/javascript" src="/static/71ae9cd9/scripts/prototype.js"></script>
+<script type="text/javascript" src="${rootURL}/plugin/BuildStatus/main.js"></script>
 
     <div class="main">
 
-        <div class="parent">
+        <span class="downstreamBuildLabel">Main Build:</span>
+
+        <div class="parent ${it.isParentRunning() ? 'RUNNING' : it.getBuildStatus() }">
 
             <div class="parentHeader">
 
-                ${it.getParentBuildName()}
-                ${it.getParentBuildNumber()}
+                <a class="buildlink" href="${it.getBuildConsoleURL()}">${it.getParentBuildName()} ${it.getParentBuildNumber()}</a>
 
             </div>
+
             <div class="parentData">
 
                 <j:if test="${it.isParentRunning()}">
-                        Status: Running
-                Current build duration: ${it.getParentDuration()}
+                    <div class="status">
+                        <span class="statusLabel">Status: </span>Running
+                    </div>
+                    <div class="duration">
+                        <span class="statusLabel">Current build duration: </span>${it.getParentDuration()}
+                    </div>
                 </j:if>
                 <j:if test="${!it.isParentRunning()}">
-                    Finished - Took: ${it.getParentDuration()}
-                    Status: ${it.getBuildStatus()}
+                    <div class="status">
+                        <span class="statusLabel">Status: </span>${it.getBuildStatus()}
+                    </div>
+                    <div class="duration">
+                        <span class="statusLabel">Finished in: </span>${it.getParentDuration()}
+                    </div>
                 </j:if>
 
             </div>
 
-            <div class="downstreamContainer">
+        </div>
 
-                Downstream Builds:
+        <div class="downstreamBuilds">
 
-                <j:forEach items="${it.getDownstreamBuilds()}" var="dsb" indexVar="i">
+            <span class="downstreamBuildLabel">Downstream Builds:</span>
 
-                    <div class="downstreamBuildRow">
+            <j:forEach items="${it.getDownstreamBuilds()}" var="dsb" indexVar="i">
 
-                        ${dsb.getJobName()}
-                        ${dsb.getBuildNumber()}
+                <div class="downstreamBuildRow ${dsb.currentlyRunning() ? 'RUNNING' : dsb.getBuildStatus() }">
 
-                        <j:if test="${dsb.currentlyRunning()}">
-                            Status: Running
-                            Current build duration: ${dsb.getRunDuration()}
-                        </j:if>
-                        <j:if test="${!dsb.currentlyRunning()}">
-                            Status: ${dsb.getBuildStatus()}
-                            Took: ${dsb.getRunDuration()}
+                    <a class="buildlink" href="${dsb.getBuildConsoleURL()}">${dsb.getJobName()} ${dsb.getBuildNumber()}</a>
 
-                            <div class="errorContainer">
+                    <j:if test="${dsb.currentlyRunning()}">
+                        <div class="status">
+                            <span class="statusLabel">Status: </span>Running
+                        </div>
+                        <div class="duration">
+                            <span class="statusLabel">Current build duration: </span>${dsb.getRunDuration()}
+                        </div>
+                    </j:if>
+                    <j:if test="${!dsb.currentlyRunning()}">
 
-                                <div class="errorCount">
+                        <div class="status">
+                            <span class="statusLabel">Status: </span>${dsb.getBuildStatus()}
+                        </div>
+                        <div class="duration">
+                            <span class="statusLabel">Finished in: </span>${dsb.getRunDuration()}
+                        </div>
 
-                                    <j:if test="${dsb.getErrorCount() == 0}">
-                                        Failures: No failures
-                                    </j:if>
-                                    <j:if test="${!(dsb.getErrorCount() == 0)}">
+                        <div class="errorContainer">
 
-                                        <j:if test="${dsb.getBuildStatus() == 'FAILURE'}">
+                            <div class="errorCount">
 
-                                            Failures: ${dsb.getErrorCount()}
+                                <j:if test="${dsb.getErrorCount() == 0}">
+                                    <span class="statusLabel">Failures: </span>0
+                                </j:if>
+                                <j:if test="${!(dsb.getErrorCount() == 0)}">
+                                    <span class="statusLabel">Failures: </span>${dsb.getErrorCount()}
+                                    <div class="showDetailedErrors">Show Details</div>
 
-                                        </j:if>
-                                        <j:if test="${!(dsb.getBuildStatus() == 'FAILURE')}">
+                                    <j:if test="${dsb.getBuildStatus() == 'FAILURE'}">
 
-                                            Failures: No Failures
-
-                                        </j:if>
-
-                                    </j:if>
-
-                                </div>
-
-                                <div class="toggleDetailedError">
-
-                                    <j:if test="${!(dsb.getErrorCount() == 0)}">
-
-                                        <j:if test="${dsb.getBuildStatus() == 'FAILURE'}">
-
+                                        <div class="toggle">
                                             <j:forEach items="${dsb.getDetailedErrors()}" var="error" indexVar="i">
 
                                                 <div class="detailedError">
 
-                                                    <span class="failureLabel">Failure Message: </span> ${error.getFailureMessage()}
-                                                    <span class="failureLabel">Failure Name: </span> ${error.getTestName()}
-                                                    <span class="failureLabel">Failure File: </span> ${error.getFile()}
-                                                    <span class="failureLabel">Failure Line: </span> ${error.getFailureLine()}
-                                                    <span class="failureLabel">Failure Stacktrace: </span> ${error.getFailureBacktrace()}
+                                                    <div class="failureLabel">Failure Message: <span class="failureDetail">${error.getFailureMessage()}</span></div>
+                                                    <div class="failureLabel">Failure Name: <span class="failureDetail">${error.getTestName()}</span></div>
+                                                    <div class="failureLabel">Failure File: <span class="failureDetail">${error.getFile()}</span></div>
+                                                    <div class="failureLabel">Failure Line: <span class="failureDetail">${error.getFailureLine()}</span></div>
+                                                    <div class="failureLabel">Failure Stacktrace:<br/><span class="failureDetail">${error.getFailureBacktrace()}</span></div>
 
                                                 </div>
 
                                             </j:forEach>
-
-                                        </j:if>
+                                        </div>
 
                                     </j:if>
 
-                                </div>
+                                </j:if>
 
                             </div>
 
-                        </j:if>
+                        </div>
 
-                    </div>
+                    </j:if>
 
-                </j:forEach>
+                </div>
 
-            </div>
+            </j:forEach>
 
         </div>
 

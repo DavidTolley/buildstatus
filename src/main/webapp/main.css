@@ -1,28 +1,98 @@
 .main{
-
+    margin-top: 20px;
+    margin-left: 10px;
 }
 
-.parent{
-    overflow: hidden;
-    display: block;
+.SUCCESS{
+    border-left: 10px solid #00B873;
+}
+
+.RUNNING{
+    border-left: 10px solid #FF966A;
+}
+
+.FAILURE{
+    border-left: 10px solid #FF5254;
+}
+
+.UNSTABLE{
+    border-left: 10px solid #F7D68C;
+}
+
+.ABORTED{
+    border-left: 10px solid grey;
 }
 
 .parentHeader{
-    overflow: hidden;
-    display: block;
-    clear: both;
+    padding-left: 3px;
 }
 
-.toggleDetailedError{
-    display: block
+.parent{
+}
+
+.parentData{
+    padding-left: 3px;
+}
+
+.downstreamBuilds{
+    margin-left: 15px;
+}
+
+.statusLabel{
+    color: #CCCCCC;
+}
+
+.downstreamBuildLabel{
+    font-size: 12px;
+}
+
+.downstreamBuildRow{
+    border-top: 1px solid #ccc;
+    padding-left: 3px;
+    padding-top: 3px;
+}
+
+.downstreamBuildRow:hover{
+    border-top: 1px solid #ccc;
+    background-color: #f5f5f5;
+    padding-left: 3px;
+    padding-top: 3px;
+}
+
+.showDetailedErrors{
+    font-size: 12px;
+    cursor: hand;
+    cursor: pointer;
 }
 
 .detailedError{
     font-size: 12px;
-    border-bottom: 1px solid;
+    border-top: 1px solid;
+    display: block
 }
 
 .failureLabel{
     display: block;
     color: #CCCCCC;
+    clear: both;
+    background-color: white;
+}
+
+.failureDetail{
+    color: black;
+    font-size: 12px;
+}
+
+.buildlink{
+    text-decoration: none;
+    cursor: hand;
+    cursor: pointer;
+    color: black;
+}
+
+.buildlink:hover{
+    text-decoration: none;
+    cursor: hand;
+    cursor: pointer;
+    color: black;
 }

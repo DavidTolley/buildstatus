@@ -68,4 +68,14 @@ public class BuildStatusAction implements Action {
         return this.parentBuild.getResult().toString();
     }
 
+    public String getBuildConsoleURL() {
+        Jenkins jenkins = Jenkins.getInstance();
+        return jenkins.getRootUrl() + this.parentBuild.getUrl() + "console";
+    }
+
+    public String getBuildURL() {
+        Jenkins jenkins = Jenkins.getInstance();
+        return jenkins.getRootUrl() + this.parentBuild.getUrl();
+    }
+
 }
