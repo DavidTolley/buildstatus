@@ -6,6 +6,8 @@ import hudson.tasks.junit.CaseResult;
 import hudson.tasks.test.AbstractTestResultAction;
 import jenkins.model.Jenkins;
 import org.apache.tools.ant.DirectoryScanner;
+import org.kohsuke.stapler.export.Exported;
+import org.kohsuke.stapler.export.ExportedBean;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -20,6 +22,7 @@ import java.util.List;
  * Time: 11:41 AM
  * To change this template use File | Settings | File Templates.
  */
+@ExportedBean
 public class DownstreamBuild {
 
     public String jobName;
@@ -35,14 +38,17 @@ public class DownstreamBuild {
         this.buildNumber = buildNumber;
     }
 
+    @Exported
     public String getJobName() {
         return this.jobName;
     }
 
+    @Exported
     public int getBuildNumber() {
         return this.buildNumber;
     }
 
+    @Exported
     public boolean currentlyRunning() {
         this.project = (AbstractProject) Jenkins.getInstance().getItem(this.jobName);
         this.buildRun = this.project.getBuildByNumber(this.buildNumber);
@@ -52,6 +58,7 @@ public class DownstreamBuild {
         return false;
     }
 
+    @Exported
     public String getRunDuration() {
         if (this.buildRun == null) {
             this.project = (AbstractProject) Jenkins.getInstance().getItem(this.jobName);
@@ -61,12 +68,15 @@ public class DownstreamBuild {
         return this.buildRun.getDurationString();
     }
 
+    @Exported
     public String getBuildStatus() {
         if (this.buildRun == null) {
             this.project = (AbstractProject) Jenkins.getInstance().getItem(this.jobName);
             this.buildRun = this.project.getBuildByNumber(this.buildNumber);
         }
 
+        if(this.currentlyRunning())
+            return "RUNNING";
         return this.buildRun.getResult().toString();
     }
 
@@ -79,6 +89,7 @@ public class DownstreamBuild {
         return this.getBuildURL() + "console";
     }
 
+    @Exported
     public String getBuildURL() {
         if (this.buildRun == null) {
             this.project = (AbstractProject) Jenkins.getInstance().getItem(this.jobName);
@@ -103,6 +114,7 @@ public class DownstreamBuild {
         return null;
     }
 
+    @Exported
     public int getErrorCount() {
 
         if (!this.currentlyRunning()) {

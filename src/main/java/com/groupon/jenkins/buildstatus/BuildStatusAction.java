@@ -3,6 +3,8 @@ package com.groupon.jenkins.buildstatus;
 import hudson.EnvVars;
 import hudson.model.*;
 import jenkins.model.Jenkins;
+import org.kohsuke.stapler.export.Exported;
+import org.kohsuke.stapler.export.ExportedBean;
 
 import java.util.*;
 
@@ -13,6 +15,7 @@ import java.util.*;
  * Time: 2:13 PM
  * To change this template use File | Settings | File Templates.
  */
+@ExportedBean
 public class BuildStatusAction implements Action {
     private AbstractBuild parentBuild;
     public List<DownstreamBuild> dsbs;
@@ -32,6 +35,11 @@ public class BuildStatusAction implements Action {
 
     public List<DownstreamBuild> getDownstreamBuilds() {
         return dsbs;
+    }
+
+    @Exported
+    public ParentBuild getParentBuild(){
+        return new ParentBuild(parentBuild.getProject().getName(), parentBuild.getNumber(), getDownstreamBuilds());
     }
 
     public String getParentDuration() {
@@ -65,6 +73,8 @@ public class BuildStatusAction implements Action {
     }
 
     public String getBuildStatus() {
+        if(this.isParentRunning())
+            return "RUNNING";
         return this.parentBuild.getResult().toString();
     }
 
