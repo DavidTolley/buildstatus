@@ -1,4 +1,5 @@
-<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form" xmlns:i="jelly:fmt">
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form" xmlns:i="jelly:fmt" xmlns:x="jelly:xml">
+<x:doctype name="html"/>
 <meta http-equiv="refresh" content="45"/>
 <link rel="stylesheet" type="text/css" href="${rootURL}/plugin/BuildStatus/main.css"/>
 <script type="text/javascript" src="/static/71ae9cd9/scripts/prototype.js"></script>

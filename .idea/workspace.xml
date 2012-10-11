@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="18a9d0f7-b426-438c-8361-7886193e2e38" name="Default" comment="" />
+    <list default="true" id="18a9d0f7-b426-438c-8361-7886193e2e38" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/groupon/jenkins/buildstatus/ParentBuild.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BuildStatus.iml" afterPath="$PROJECT_DIR$/BuildStatus.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/com/groupon/jenkins/buildstatus/BuildStatusAction/index.jelly" afterPath="$PROJECT_DIR$/src/main/resources/com/groupon/jenkins/buildstatus/BuildStatusAction/index.jelly" />
+    </list>
     <ignored path="BuildStatus.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -61,16 +69,61 @@
       <file leaf-file-name="BuildStatusAction.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/groupon/jenkins/buildstatus/BuildStatusAction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="13" selection-start="837" selection-end="837" vertical-scroll-proportion="0.0">
+            <state line="35" column="40" selection-start="977" selection-end="977" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.jelly" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="BuildStatusPlugin.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/groupon/jenkins/buildstatus/BuildStatusPlugin.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="40" column="78" selection-start="1034" selection-end="1034" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DownstreamAction.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/groupon/jenkins/buildstatus/DownstreamAction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="44" selection-start="612" selection-end="612" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DownstreamBuild.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/groupon/jenkins/buildstatus/DownstreamBuild.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="47" selection-start="1015" selection-end="1015" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.jelly" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/com/groupon/jenkins/buildstatus/BuildStatusAction/index.jelly">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="106" selection-start="2462" selection-end="2462" vertical-scroll-proportion="0.33544305">
+            <state line="15" column="63" selection-start="787" selection-end="787" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="14" selection-start="543" selection-end="543" vertical-scroll-proportion="0.19633508">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParentBuild.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/groupon/jenkins/buildstatus/ParentBuild.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="76" column="23" selection-start="2081" selection-end="2081" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -83,25 +136,28 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/groupon/jenkins/buildstatus/BuildCollection.java" />
         <option value="$PROJECT_DIR$/src/main/resources/com/groupon/jenkins/buildstatus/downstreambuilds.jelly" />
         <option value="$PROJECT_DIR$/work/jobs/PushMeGood/config.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/groupon/jenkins/buildstatus/JSONParser.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/groupon/jenkins/buildstatus/ParseJSON.java" />
         <option value="$PROJECT_DIR$/work/jobs/SOFTERNOW/workspace/tmp/json_output.log" />
         <option value="$PROJECT_DIR$/src/main/java/com/groupon/jenkins/buildstatus/FailureJSON.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/main.css" />
-        <option value="$PROJECT_DIR$/src/main/resources/com/groupon/jenkins/buildstatus/BuildStatusAction/index.jelly" />
         <option value="$PROJECT_DIR$/src/main/java/com/groupon/jenkins/buildstatus/DownstreamAction.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/groupon/jenkins/buildstatus/DownstreamBuildWrapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/groupon/jenkins/buildstatus/DownstreamBuild.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/groupon/jenkins/buildstatus/BuildStatusAction.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/groupon/jenkins/buildstatus/BuildStatusPlugin.java" />
         <option value="$PROJECT_DIR$/src/main/resources/com/groupon/jenkins/buildstatus/BuildStatusPlugin/config.jelly" />
+        <option value="$PROJECT_DIR$/src/main/resources/com/groupon/jenkins/buildstatus/BuildStatusAction/index.jelly" />
+        <option value="$PROJECT_DIR$/src/main/java/com/groupon/jenkins/buildstatus/ParentBuild.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -114,12 +170,12 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="323" />
-    <option name="y" value="41" />
-    <option name="width" value="1671" />
-    <option name="height" value="1028" />
+    <option name="x" value="216" />
+    <option name="y" value="108" />
+    <option name="width" value="1240" />
+    <option name="height" value="922" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -145,26 +201,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BuildStatus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BuildStatus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BuildStatus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="PackagesPane">
         <subPane>
           <PATH>
@@ -189,20 +225,106 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BuildStatus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BuildStatus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BuildStatus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BuildStatus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BuildStatus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BuildStatus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BuildStatus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BuildStatus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BuildStatus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="buildstatus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.lastSelected" value="project.propVCSSupport.VCSs.Git" />
-    <property name="MemberChooser.sorted" value="false" />
     <property name="recentsLimit" value="5" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -239,24 +361,6 @@
         <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -282,6 +386,24 @@
       <envs />
       <properties />
       <listeners />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -356,6 +478,24 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="DETECT_NESTED_COPIES" value="true" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <configuration useDefault="true">$USER_HOME$/.subversion_IDEA</configuration>
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="18a9d0f7-b426-438c-8361-7886193e2e38" name="Default" comment="" />
@@ -365,14 +505,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="323" y="41" width="1671" height="1028" extended-state="0" />
+    <frame x="216" y="108" width="1240" height="922" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29291844" sideWeight="0.999001" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29176757" sideWeight="0.999001" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -380,7 +520,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22441652" sideWeight="0.70708156" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22419354" sideWeight="0.70708156" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -444,44 +584,19 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/work/jobs/EVENHARDER/workspace/tmp/json_output.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="53" selection-start="735" selection-end="735" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.466/jenkins-core-1.466.jar!/hudson/model/AbstractBuild.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="73" selection-start="5154" selection-end="5154" vertical-scroll-proportion="0.33263817">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.466/jenkins-core-1.466.jar!/hudson/model/Run.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="44" selection-start="3811" selection-end="3811" vertical-scroll-proportion="0.33263817">
-          <folding />
-        </state>
+        <state line="79" column="44" selection-start="3811" selection-end="3811" vertical-scroll-proportion="0.33263817" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="54" selection-start="312" selection-end="312" vertical-scroll-proportion="0.39744848">
-          <folding />
-        </state>
+        <state line="27" column="54" selection-start="312" selection-end="312" vertical-scroll-proportion="0.39744848" />
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/jenkins-ci/main/jenkins-core/1.466/jenkins-core-1.466.jar!/hudson/tasks/BuildWrapper.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="22" selection-start="159" selection-end="159" vertical-scroll-proportion="0.06256517">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/groupon/jenkins/buildstatus/DownstreamAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="44" selection-start="558" selection-end="558" vertical-scroll-proportion="0.47651935">
-          <folding />
-        </state>
+        <state line="5" column="22" selection-start="159" selection-end="159" vertical-scroll-proportion="0.06256517" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/groupon/jenkins/buildstatus/DownstreamBuildWrapper.java">
@@ -495,42 +610,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/groupon/jenkins/buildstatus/ParseJSON.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="17" selection-start="1559" selection-end="1559" vertical-scroll-proportion="0.6648794">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#858#872#0" expanded="true" />
-            <element signature="e#933#947#0" expanded="true" />
-            <element signature="e#1542#1555#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="56" column="17" selection-start="1559" selection-end="1559" vertical-scroll-proportion="0.6648794" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/groupon/jenkins/buildstatus/FailureJSON.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="65" selection-start="874" selection-end="874" vertical-scroll-proportion="0.3605898">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/groupon/jenkins/buildstatus/DownstreamBuild.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="38" selection-start="912" selection-end="912" vertical-scroll-proportion="0.25603217">
-          <folding />
-        </state>
+        <state line="28" column="65" selection-start="874" selection-end="874" vertical-scroll-proportion="0.3605898" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/work/jobs/SOFTERNOW/workspace/results.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/work/jobs/SOFTERNOW/workspace/tmp/json_output.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="36" selection-start="120" selection-end="120" vertical-scroll-proportion="0.23734178">
-          <folding />
-        </state>
+        <state line="10" column="36" selection-start="120" selection-end="120" vertical-scroll-proportion="0.23734178" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/com/groupon/jenkins/buildstatus/BuildStatusPlugin/config.jelly">
@@ -540,23 +635,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/groupon/jenkins/buildstatus/BuildStatusPlugin.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/com/groupon/jenkins/buildstatus/BuildStatusAction/index.jelly">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="78" selection-start="1044" selection-end="1044" vertical-scroll-proportion="0.68829113">
+        <state line="15" column="63" selection-start="787" selection-end="787" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/groupon/jenkins/buildstatus/BuildStatusAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="13" selection-start="837" selection-end="837" vertical-scroll-proportion="0.0">
+        <state line="35" column="40" selection-start="977" selection-end="977" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/com/groupon/jenkins/buildstatus/BuildStatusAction/index.jelly">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/groupon/jenkins/buildstatus/BuildStatusPlugin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="106" selection-start="2462" selection-end="2462" vertical-scroll-proportion="0.33544305">
+        <state line="40" column="78" selection-start="1034" selection-end="1034" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/groupon/jenkins/buildstatus/DownstreamAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="44" selection-start="612" selection-end="612" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/groupon/jenkins/buildstatus/DownstreamBuild.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="47" selection-start="1015" selection-end="1015" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/groupon/jenkins/buildstatus/ParentBuild.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="23" selection-start="2081" selection-end="2081" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="14" selection-start="543" selection-end="543" vertical-scroll-proportion="0.19633508">
           <folding />
         </state>
       </provider>
