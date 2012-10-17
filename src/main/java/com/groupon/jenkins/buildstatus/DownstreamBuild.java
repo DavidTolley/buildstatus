@@ -6,9 +6,12 @@ import hudson.tasks.junit.CaseResult;
 import hudson.tasks.test.AbstractTestResultAction;
 import jenkins.model.Jenkins;
 import org.apache.tools.ant.DirectoryScanner;
+import org.kohsuke.stapler.StaplerRequest;
+import org.kohsuke.stapler.StaplerResponse;
 import org.kohsuke.stapler.export.Exported;
 import org.kohsuke.stapler.export.ExportedBean;
 
+import javax.servlet.ServletException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -75,7 +78,7 @@ public class DownstreamBuild {
             this.buildRun = this.project.getBuildByNumber(this.buildNumber);
         }
 
-        if(this.currentlyRunning())
+        if (this.currentlyRunning())
             return "RUNNING";
         return this.buildRun.getResult().toString();
     }
@@ -131,5 +134,20 @@ public class DownstreamBuild {
         }
 
         return -1;
+    }
+
+    public void abortBuild(StaplerRequest req, StaplerResponse rsp) throws ServletException,
+            IOException, InterruptedException {
+
+        if (this.buildRun == null) {
+            this.project = (AbstractProject) Jenkins.getInstance().getItem(this.jobName);
+            this.buildRun = this.project.getBuildByNumber(this.buildNumber);
+        }
+
+        try {
+            buildRun.getExecutor().interrupt(Result.ABORTED);
+        } catch (Exception e) {
+
+        }
     }
 }

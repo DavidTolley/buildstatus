@@ -47,7 +47,7 @@ public class BuildStatusAction implements Action {
     }
 
     public String getIconFileName() {
-        return null;
+        return "search.png";
     }
 
     public String getDisplayName() {
@@ -86,6 +86,10 @@ public class BuildStatusAction implements Action {
     public String getBuildURL() {
         Jenkins jenkins = Jenkins.getInstance();
         return jenkins.getRootUrl() + this.parentBuild.getUrl();
+    }
+
+    public AbstractBuild<?, ?> getBuild() {
+        return parentBuild;
     }
 
 }

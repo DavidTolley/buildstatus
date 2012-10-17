@@ -1,14 +1,13 @@
-<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form" xmlns:i="jelly:fmt" xmlns:x="jelly:xml">
-<x:doctype name="html"/>
-<meta http-equiv="refresh" content="45"/>
-<html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="${rootURL}/plugin/BuildStatus/main.css"/>
-        <script type="text/javascript" src="/static/71ae9cd9/scripts/prototype.js"></script>
-        <script type="text/javascript" src="${rootURL}/plugin/BuildStatus/main.js"></script>
-    </head>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form" xmlns:test="/lib/test">
+    <script type="text/javascript" src="/static/8c6d673c/scripts/prototype.js"/>
+    <link rel="stylesheet" type="text/css" href="${rootURL}/plugin/BuildStatus/main.css"/>
+    <script type="text/javascript" src="${rootURL}/plugin/BuildStatus/main.js"></script>
+    <meta http-equiv="refresh" content="45"/>
 
-    <body>
+	<l:layout>
+	    <st:include it="${it.getBuild()}" page="sidepanel.jelly" />
+		<l:main-panel>
+
     <div class="main">
 
         <span class="downstreamBuildLabel">Main Build:</span>
@@ -117,9 +116,6 @@
         </div>
 
     </div>
-
-    </body>
-
-</html>
-
+		</l:main-panel>
+	</l:layout>
 </j:jelly>

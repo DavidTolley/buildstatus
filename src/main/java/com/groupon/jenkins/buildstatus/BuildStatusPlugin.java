@@ -34,6 +34,7 @@ public class BuildStatusPlugin extends Builder {
 
         try {
             build.addAction(new BuildStatusAction(build));
+            build.addAction((new AbortBuildAction(build)));
         } catch (Exception e) {
 
         }
