@@ -5,6 +5,7 @@ import hudson.util.RunList;
 import jenkins.model.Jenkins;
 import org.kohsuke.stapler.StaplerRequest;
 import org.kohsuke.stapler.StaplerResponse;
+import org.kohsuke.stapler.export.Exported;
 
 import javax.servlet.ServletException;
 import java.io.IOException;
@@ -86,5 +87,13 @@ public class AbortBuildAction implements Action, Saveable {
 
     public void save() throws IOException {
         parentBuild.save();
+    }
+
+    @Exported
+    public boolean currentlyRunning() {
+
+        if (this.parentBuild.isBuilding())
+            return true;
+        return false;
     }
 }

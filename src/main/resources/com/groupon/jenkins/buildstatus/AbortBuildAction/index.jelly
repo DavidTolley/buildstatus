@@ -3,10 +3,20 @@
   <l:layout>
 		<st:include it="${it.getBuild()}" page="sidepanel.jelly" />
 		<l:main-panel>
-		  <f:form method="post" action="configSubmit" name="config">
-		    ${%Are you sure about aborting this build?}
-		    <f:submit value="${%Yes}" />
-		  </f:form>
+
+		  <j:if test="${it.currentlyRunning()}">
+              <f:form method="post" action="configSubmit" name="config">
+                ${%Are you sure about aborting this build?}
+                <f:submit value="${%Yes}" />
+              </f:form>
+		  </j:if>
+          <j:if test="${!it.currentlyRunning()}">
+
+            <div>
+                Job is no longer running. Nothing to abort.
+            </div>
+
+          </j:if>
 		</l:main-panel>
 	</l:layout>
 </j:jelly>
