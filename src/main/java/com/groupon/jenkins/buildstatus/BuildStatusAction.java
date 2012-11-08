@@ -24,9 +24,9 @@ public class BuildStatusAction implements Action {
         this.parentBuild = build;
         dsbs = new ArrayList<DownstreamBuild>();
 
-        for(Action action: build.getActions()){
+        for (Action action : build.getActions()) {
 
-            if(action.getClass().equals(DownstreamAction.class)){
+            if (action.getClass().equals(DownstreamAction.class)) {
                 DownstreamAction dsa = (DownstreamAction) action;
                 dsbs.add(dsa.getDownstreamBuild());
             }
@@ -38,7 +38,7 @@ public class BuildStatusAction implements Action {
     }
 
     @Exported
-    public ParentBuild getParentBuild(){
+    public ParentBuild getParentBuild() {
         return new ParentBuild(parentBuild.getProject().getName(), parentBuild.getNumber(), getDownstreamBuilds());
     }
 
@@ -73,9 +73,136 @@ public class BuildStatusAction implements Action {
     }
 
     public String getBuildStatus() {
-        if(this.isParentRunning())
+        if (this.isParentRunning())
             return "RUNNING";
+
+        if (this.isParentRunning())
+            return "RUNNING";
+
+        EnvVars envVars = null;
+
+        try {
+            envVars = this.parentBuild.getEnvironment();
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+
+        if (envVars != null && envVars.get("PUSH_ERROR") != null) {
+
+            if (envVars.get("PUSH_ERROR").equals("true")) {
+                return "PushError";
+            }
+        }
+
+        if (envVars != null && envVars.get("MERGE_CONFLICT") != null) {
+
+            if (envVars.get("MERGE_CONFLICT").equals("true")) {
+                return "MergeConflict";
+            }
+        }
+
+        if (envVars != null && envVars.get("PRE_RECEIVE_HOOK_ERROR") != null) {
+
+            if (envVars.get("PRE_RECEIVE_HOOK_ERROR").equals("true")) {
+                return "PreReceiveHookError";
+            }
+        }
+
+        if (envVars != null && envVars.get("CI_INFRASTRUCTURE_ERROR") != null) {
+
+            if (envVars.get("CI_INFRASTRUCTURE_ERROR").equals("true")) {
+                return "CIInfrastructureError";
+            }
+        }
+
+        if (envVars != null && envVars.get("ASSET_GENERATION_ERROR") != null) {
+
+            if (envVars.get("ASSET_GENERATION_ERROR").equals("true")) {
+                return "AssetGenerationError";
+            }
+        }
+
         return this.parentBuild.getResult().toString();
+    }
+
+    public boolean getPreReceiveHookError() {
+
+        EnvVars envVars = null;
+
+        try {
+            envVars = this.parentBuild.getEnvironment();
+        } catch (Exception e) {
+
+        }
+
+        if (envVars != null && envVars.get("PRE_RECEIVE_HOOK_ERROR") != null && envVars.get("PRE_RECEIVE_HOOK_ERROR").equals("true"))
+            return true;
+
+        return false;
+    }
+
+    public boolean getPushErrors() {
+
+        EnvVars envVars = null;
+
+        try {
+            envVars = this.parentBuild.getEnvironment();
+        } catch (Exception e) {
+
+        }
+
+        if (envVars != null && envVars.get("PUSH_ERROR") != null && envVars.get("PUSH_ERROR").equals("true") && this.parentBuild.getResult().equals(Result.FAILURE))
+            return true;
+
+        return false;
+    }
+
+    public boolean getMergeConflicts() {
+
+        EnvVars envVars = null;
+
+        try {
+            envVars = this.parentBuild.getEnvironment();
+        } catch (Exception e) {
+
+        }
+
+        if (envVars != null && envVars.get("MERGE_CONFLICT") != null && envVars.get("MERGE_CONFLICT").equals("true"))
+            return true;
+
+        return false;
+    }
+
+    public boolean getAssetGenerationError() {
+
+        EnvVars envVars = null;
+
+        try {
+            envVars = this.parentBuild.getEnvironment();
+        } catch (Exception e) {
+
+        }
+
+        if (envVars != null && envVars.get("ASSET_GENERATION_ERROR") != null && envVars.get("ASSET_GENERATION_ERROR").equals("true"))
+            return true;
+
+        return false;
+    }
+
+    public boolean getCIInfraError() {
+
+        EnvVars envVars = null;
+
+        try {
+            envVars = this.parentBuild.getEnvironment();
+        } catch (Exception e) {
+
+        }
+
+        if (envVars != null && envVars.get("CI_INFRASTRUCTURE_ERROR") != null && envVars.get("CI_INFRASTRUCTURE_ERROR").equals("true"))
+            return true;
+
+        return false;
     }
 
     public String getBuildConsoleURL() {

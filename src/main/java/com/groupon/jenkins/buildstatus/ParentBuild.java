@@ -1,5 +1,6 @@
 package com.groupon.jenkins.buildstatus;
 
+import hudson.EnvVars;
 import hudson.model.AbstractProject;
 import hudson.model.Api;
 import hudson.model.Result;
@@ -61,37 +62,100 @@ public class ParentBuild {
 
     @Exported
     public String getRunDuration() {
-            this.project = (AbstractProject) Jenkins.getInstance().getItem(this.jobName);
-            this.buildRun = this.project.getBuildByNumber(this.buildNumber);
+        this.project = (AbstractProject) Jenkins.getInstance().getItem(this.jobName);
+        this.buildRun = this.project.getBuildByNumber(this.buildNumber);
 
         return this.buildRun.getDurationString();
     }
 
     @Exported
     public String getBuildStatus() {
-            this.project = (AbstractProject) Jenkins.getInstance().getItem(this.jobName);
-            this.buildRun = this.project.getBuildByNumber(this.buildNumber);
-        if(this.currentlyRunning())
+        this.project = (AbstractProject) Jenkins.getInstance().getItem(this.jobName);
+        this.buildRun = this.project.getBuildByNumber(this.buildNumber);
+        if (this.currentlyRunning())
             return "RUNNING";
+
+        EnvVars envVars = null;
+
+        try {
+            envVars = this.buildRun.getEnvironment();
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+
+        if (envVars != null && envVars.get("PUSH_ERROR") != null) {
+
+            if (envVars.get("PUSH_ERROR").equals("true")) {
+                return "PushError";
+            }
+        }
+
+        if (envVars != null && envVars.get("MERGE_CONFLICT") != null) {
+
+            if (envVars.get("MERGE_CONFLICT").equals("true")) {
+                return "MergeConflict";
+            }
+        }
+
+        if (envVars != null && envVars.get("PRE_RECEIVE_HOOK_ERROR") != null) {
+
+            if (envVars.get("PRE_RECEIVE_HOOK_ERROR").equals("true")) {
+                return "PreReceiveHookError";
+            }
+        }
 
         return this.buildRun.getResult().toString();
     }
 
+    public boolean getPushErrors() {
+
+        EnvVars envVars = null;
+
+        try {
+            envVars = this.buildRun.getEnvironment();
+        } catch (Exception e) {
+
+        }
+
+        if (envVars != null && envVars.get("PUSH_ERROR") != null && envVars.get("PUSH_ERROR").equals("true") && this.buildRun.getResult().equals(Result.FAILURE))
+            return true;
+
+        return false;
+    }
+
+    public boolean getMergeConflicts() {
+
+        EnvVars envVars = null;
+
+        try {
+            envVars = this.buildRun.getEnvironment();
+        } catch (Exception e) {
+
+        }
+
+        if (envVars != null && envVars.get("MERGE_CONFLICT") != null && envVars.get("MERGE_CONFLICT").equals("true"))
+            return true;
+
+        return false;
+    }
+
     public String getBuildConsoleURL() {
-            this.project = (AbstractProject) Jenkins.getInstance().getItem(this.jobName);
-            this.buildRun = this.project.getBuildByNumber(this.buildNumber);
+        this.project = (AbstractProject) Jenkins.getInstance().getItem(this.jobName);
+        this.buildRun = this.project.getBuildByNumber(this.buildNumber);
 
         return this.getBuildURL() + "console";
     }
 
     @Exported
     public String getBuildURL() {
-            this.project = (AbstractProject) Jenkins.getInstance().getItem(this.jobName);
-            this.buildRun = this.project.getBuildByNumber(this.buildNumber);
+        this.project = (AbstractProject) Jenkins.getInstance().getItem(this.jobName);
+        this.buildRun = this.project.getBuildByNumber(this.buildNumber);
 
         Jenkins jenkins = Jenkins.getInstance();
         return jenkins.getRootUrl() + this.buildRun.getUrl();
     }
 
-    public Api getApi() { return new Api(this); }
+    public Api getApi() {
+        return new Api(this);
+    }
 }
